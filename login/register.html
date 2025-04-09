@@ -1,0 +1,134 @@
+<html> <!--包含了簡單的檢核機制、註冊的表單-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>會員註冊</title>
+    <style>
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 46px;
+            position:absolute;
+            left :120px;
+            top:40px;
+        }
+        .container {
+            padding: 16px;
+            text-align: center;
+
+        }
+        #box-model2{ 
+            border-width: 5px;
+            border-style: solid;
+            border-color: gray;
+            width: 690px; 
+            height: 780px;
+            margin: 20px auto 20px auto;   
+        }
+        .input-field {
+            width: 70%;
+            padding: 10px;
+            outline: none;
+            font-size: 30px;
+            border-width: 1px;
+            
+        }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Add a hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+        .time1{
+            line-height: 46px;
+            position:absolute;
+            right:50px;
+            top:40px;
+        }
+    </style>
+    <script>
+        
+        function validateForm() {
+             // 檢查登入帳號是否有特殊字元
+            var re = /[^a-zA-Z0-9.-_]/;
+            var okname = re.exec ( document.getElementById("username").value);
+            if ( okname ) {
+                window.alert ( "指允許英文、數字、底線、小數點與減號" );
+                document.getElementById("username").focus();
+                return false;
+            }
+
+            var x = document.forms["registerForm"]["password"].value;
+            var y = document.forms["registerForm"]["password_check"].value;
+
+            if(x.length<6){
+                alert("密碼長度不足");
+                return false;
+            }
+            if (x != y) {
+                alert("請確認密碼是否輸入正確");
+                return false;
+            }
+
+        }
+    </script>
+    
+    </head>
+<body>
+    <nav class="header">
+        <div class="logo">關懷守護智慧聯網系統
+            <!--<h1 ></h1>-->
+        </div>
+        <div class="time1"><script src="time.js"></script>
+            <form id="form1" runat="server">  
+              <font color="Aqua" size="5"><div id = "mytime"></div></font>
+            </form>
+        </div>
+    </nav>
+    <hr/>
+    <div class="container">
+        <div id="box-model2" >
+            <form style="font-size:24px;font-weight:bold;" name="registerForm" method="post" action="register.php" onsubmit="return validateForm()">
+            <p style="font-size:28px;font-weight:bold;" >註冊系統</p>
+            帳  號：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="text" name="username" id="username"><br/><br/>
+            密  碼：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="password" name="password" id="password"><br/><br/>
+            確認密碼：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="password" name="password_check" id="password_check"><br/><br/>
+            E-mail信  箱:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="mail" name="mail"><br/><br/>
+            姓  名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="text" name="name"><br/><br/>
+            被照護者電話:&nbsp;
+                <input class="input-field" type="number1" name="phone1" id="phone1"><br/><br/>
+            守護人電話:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="input-field" type="number2" name="phone2" id="phone2"><br/><br/><br/>
+            
+            <button type="submit">註冊</button>
+            <button type="reset">重設</button>
+            <!--<input type="submit" value="註冊" name="submit">
+            <input type="reset" value="重設" name="submit">-->
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

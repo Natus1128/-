@@ -1,0 +1,24 @@
+body{
+    padding-bottom: 50px;
+}
+
+.footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    z-index: 9999;
+    
+    float: left;
+    font-size: 26px;
+    color: #ffc078;
+    line-height: 100px;
+    text-align: center;
+  }
+.container{
+    width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}

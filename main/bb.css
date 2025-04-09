@@ -1,0 +1,21 @@
+@keyframes blink-smooth {
+    to {
+      color: transparent;
+    }
+}
+  
+@keyframes blink {
+    50% {
+      color: transparent;
+    }
+}
+  
+.highlight {
+    font-size: 35px;
+    animation: 1s blink-smooth 36 alternate;
+}
+  
+.highlight2 {
+    font-size: 35px;
+    animation: 1s blink 36 steps(1);
+}
